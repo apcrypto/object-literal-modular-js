@@ -1,7 +1,7 @@
 (function() {
-  var inputs = {
+  var input = {
     slider: 0,
-    buttonClick: false,
+    button: false,
 
     init: function() {
       this.cacheDom();
@@ -13,19 +13,23 @@
     cacheDom: function() {
       this.inputsEl = document.querySelector("#inputsModule");
       this.sliderEl = document.querySelector(".slider");
-      this.buttonEl = document.querySelector(".button");
+      this.buttonEl = document.querySelector(".submit");
       this.sliderVal = document.querySelector("#slider-value");
+      this.buttonVal = document.querySelector("#button-value");
     },
 
     bindEvents: function() {
       this.sliderEl.oninput = this.updateSlider.bind(this);
+      this.buttonEl.onclick = this.updateButton.bind(this);
     },
 
     render: function() {
       var data = {
-        slider: this.slider
+        slider: this.slider,
+        button: this.button
       };
-      this.sliderVal.innerHTML = data.slider;
+      this.sliderVal.innerHTML = "value: " + `${this.slider}`;
+      this.buttonVal.innerHTML = "clicked: " + `${this.button}`;
     },
 
     updateSlider: function() {
@@ -34,10 +38,10 @@
     },
 
     updateButton: function() {
-      this.slider = this.sliderEl.value;
+      this.button = true;
       this.render();
     }
   };
 
-  inputs.init();
+  input.init();
 })();
