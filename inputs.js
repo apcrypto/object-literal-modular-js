@@ -1,4 +1,6 @@
-(function() {
+var Input = function() {
+  this.input = input;
+
   var input = {
     slider: 0,
     button: false,
@@ -24,10 +26,6 @@
     },
 
     render: function() {
-      var data = {
-        slider: this.slider,
-        button: this.button
-      };
       this.sliderVal.innerHTML = "value: " + `${this.slider}`;
       this.buttonVal.innerHTML = "clicked: " + `${this.button}`;
     },
@@ -44,4 +42,6 @@
   };
 
   input.init();
-})();
+};
+
+Input();
